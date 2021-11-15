@@ -191,35 +191,58 @@
 // Iteración #7: Reduce
 // 7.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de los alumnos usando la función .reduce().
 
-const exams = [
-    {name: 'Yuyu Cabeza Crack', score: 5}, 
-    {name: 'Maria Aranda Jimenez', score: 1}, 
-    {name: 'Cristóbal Martínez Lorenzo', score: 6}, 
-    {name: 'Mercedez Regrera Brito', score: 7},
-    {name: 'Pamela Anderson', score: 3},
-    {name: 'Enrique Perez Lijó', score: 6},
-    {name: 'Pedro Benitez Pacheco', score: 8},
-    {name: 'Ayumi Hamasaki', score: 4},
-    {name: 'Robert Kiyosaki', score: 2},
-    {name: 'Keanu Reeves', score: 10}
-];
+// const exams = [
+//     {name: 'Yuyu Cabeza Crack', score: 5}, 
+//     {name: 'Maria Aranda Jimenez', score: 1}, 
+//     {name: 'Cristóbal Martínez Lorenzo', score: 6}, 
+//     {name: 'Mercedez Regrera Brito', score: 7},
+//     {name: 'Pamela Anderson', score: 3},
+//     {name: 'Enrique Perez Lijó', score: 6},
+//     {name: 'Pedro Benitez Pacheco', score: 8},
+//     {name: 'Ayumi Hamasaki', score: 4},
+//     {name: 'Robert Kiyosaki', score: 2},
+//     {name: 'Keanu Reeves', score: 10}
+// ];
 
-totalNotas = exams.reduce(function(accumulator, exam){
-	return accumulator + exam.score;},0);
+// totalNotas = exams.reduce(function(accumulator, exam){
+// 	return accumulator + exam.score;},0);
 
 
 // 7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los alumnos que esten aprobados usando la función .reduce()
-alumnosAprobados = exams.filter(function(alumno) {
-	if (alumno.score > 5)
-	{return alumno.score;}
-})
-totalNotasAprobados = alumnosAprobados.reduce(function(accumulator,alumnoAprobado){
-	return accumulator + alumnoAprobado.score; },0);
+// alumnosAprobados = exams.filter(function(alumno) {
+// 	if (alumno.score > 5)
+// 	{return alumno.score;}
+// })
+// totalNotasAprobados = alumnosAprobados.reduce(function(accumulator,alumnoAprobado){
+// 	return accumulator + alumnoAprobado.score; },0);
 
 // 7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
-let media = exams.reduce(function(accumulator, nota){
-	return accumulator + nota.score /exams.length;},0);
-	console.log(media)
+// let media = exams.reduce(function(accumulator, nota){
+// 	return accumulator + nota.score /exams.length;},0);
+	
+// Iteración #8: Bonus
+// 8.1 Dado el siguiente javascript filtra los videojuegos por gender = 'RPG' usando .filter() y usa .reduce() para conseguir la media de sus .score. La función .find() también podría ayudarte para el contrar el genero 'RPG' en el array .gender.
+
+const videogames = [
+    {name: 'Final Fantasy VII', genders: ['RPG'], score: 9.5},
+    {name: 'Assasins Creed Valhala', genders: ['Aventura', 'RPG'], score: 4.5},
+    {name: 'The last of Us 2', genders: ['Acción', 'Aventura'], score: 9.8},
+    {name: 'Super Mario Bros', genders: ['Plataforma'], score: 8.5},
+    {name: 'Genshin Impact', genders: ['RPG', 'Aventura'], score: 7.5},
+    {name: 'Legend of Zelda: Breath of the wild', genders: ['RPG', 'La cosa más puto bonita que he visto nunca'], score: 10},
+]
+
+let gamesRpg = videogames
+.filter(e => e.genders.includes('RPG'));
+console.log(gamesRpg);
+
+let mediaRpg = gamesRpg.reduce(function(accumulator, nota) {
+return accumulator + nota.score/gamesRpg.length;},0);
+console.log(mediaRpg);
+
+
+
+
 
 
 
